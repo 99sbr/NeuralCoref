@@ -1,5 +1,5 @@
 from flask import Flask
-from apis import blueprint as api
+from .apis import blueprint as api
 from waitress import serve
 
 app = Flask(__name__)

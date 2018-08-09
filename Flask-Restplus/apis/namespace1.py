@@ -1,8 +1,5 @@
-from __future__ import unicode_literals
-from __future__ import print_function
 from flask_restplus import Namespace, Resource, fields
-from core.model import anaphoraDetection , mostRepresentative
-from neuralcoref import Coref
+from ..core.model import anaphoraDetection , mostRepresentative
 import  spacy
 
 
@@ -28,7 +25,7 @@ class InitializeLatestModel(Resource):
     @api.doc("Initialize Model")
     def get(self):
         global neuralcoref_test_instance
-        neuralcoref_test_instance = Coref()
+        neuralcoref_test_instance = spacy.load("en_coref_sm")
         return 'Success', 200
 
 
